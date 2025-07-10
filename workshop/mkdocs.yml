@@ -1,0 +1,13 @@
+site_name: Workshop ADK
+nav:
+  - Home: index.md
+  - Módulo 1: 01-intro/index.md
+theme:
+  name: material
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+
+plugins:
+  - glightbox

@@ -1,3 +1,6 @@
+
+![Image title](https://miro.medium.com/v2/resize:fit:1400/1*MU3ZjY0IMHdE0SCu57i5sA.gif)
+
 # 🧩 ¿Por qué tus asistentes virtuales no entienden a tus usuarios?
 
 ¿Sientes que tus asistentes virtuales son poco inteligentes, repetitivos o no entienden lo que tus usuarios realmente necesitan? En este primer episodio de nuestra serie, exploramos cómo el Google Agent Development Kit (ADK) está cambiando las reglas del juego en el desarrollo de agentes conversacionales. Te mostraremos cómo esta herramienta, junto con tecnologías como PaLM, Gemini y Vertex AI, permite crear agentes más útiles, personalizados y conectados con tus flujos de negocio. Además, te contaremos qué necesitas para comenzar y cómo poner manos a la obra con tu primer entorno.
@@ -13,6 +16,7 @@ El ADK de Google es un marco modular, listo para la producción, para construir 
 
 ### ¿Por qué utilizar el Kit de Desarrollo de Agentes (ADK)?
 ADK proporciona la flexibilidad de Python con estructuras integradas para la gestión de estados, devoluciones de llamada, streaming y entrada/salida estructurada. Veamos sus principales características:
+
 - Multiagente por diseño: ADK puede componer agentes en flujos de trabajo paralelos, secuenciales o jerárquicos.
 - Modelo agnóstico: Funciona con Gemini, GPT-4o, Claude, Mistral y otros a través de LiteLlm.
 - Modular y escalable: El usuario puede definir agentes especializados y delegar de forma inteligente utilizando la orquestación incorporada.
@@ -36,65 +40,105 @@ Exploramos escenarios reales donde ADK aporta valor:
 
 # Preguntas Frecuentes sobre Google ADK
 
-<details>
-  <summary> ⭐ ¿Cuáles son las funciones principales de Google ADK?</summary>
+??? question "⭐ ¿Cuáles son las funciones principales de Google ADK?"
 
-Google ADK incluye varias funciones destacadas:
+    Google ADK incluye varias funciones destacadas:
 
-- 📡 Soporte integrado para el protocolo de agentes de Google, que permite que los agentes se comuniquen entre sí.
-- 🧠 Tiene una memoria integrada llamada Artifact, que permite a los agentes recordar cosas y seguir metas.
-- 🎧📄🎬 Soporte para diferentes tipos de datos, como documentos, audios y videos (multimodalidad).
-</details>
+    - 📡 Soporte integrado para el protocolo de agentes de Google, que permite que los agentes se comuniquen entre sí.
+    - 🧠 Tiene una memoria integrada llamada Artifact, que permite a los agentes recordar cosas y seguir metas.
+    - 🎧📄🎬 Soporte para diferentes tipos de datos, como documentos, audios y videos (multimodalidad).
 
 
-<details>
-  <summary> 🧠 ¿Cómo maneja ADK la memoria y el estado del agente?</summary>
 
-  - ADK usa una herramienta llamada Artifact para que los agentes recuerden datos y lo que están haciendo.
- - Funciona como una especie de “cuaderno digital” donde el agente puede guardar información, tareas, objetivos y más.
- - También permite:
-    - Guardar versiones anteriores de los datos.
-    - Notificar cuando hay cambios importantes.
-    - Llevar control de planes y actividades pendientes.
-</details>
+??? question "🧠 ¿Cómo maneja ADK la memoria y el estado del agente?"
+
+    - ADK usa una herramienta llamada Artifact para que los agentes recuerden datos y lo que están haciendo.
+    - Funciona como una especie de “cuaderno digital” donde el agente puede guardar información, tareas, objetivos y más.
+      - También permite:
+        - Guardar versiones anteriores de los datos.
+        - Notificar cuando hay cambios importantes.
+        - Llevar control de planes y actividades pendientes.
 
 
-<details>
-  <summary> 🧩 ¿Qué importancia tiene la arquitectura de múltiples agentes en ADK? </summary>
+??? question "🧩 ¿Qué importancia tiene la arquitectura de múltiples agentes en ADK?"
   
-ADK está diseñado para crear sistemas donde varios agentes especializados trabajan en equipo.
-En lugar de un solo agente que hace todo, puedes tener varios que colaboran paso a paso para resolver tareas complejas, como si fuera un equipo de trabajo.
+    ADK está diseñado para crear sistemas donde varios agentes especializados trabajan en equipo.
+    En lugar de un solo agente que hace todo, puedes tener varios que colaboran paso a paso para resolver tareas complejas, como si fuera un equipo de trabajo.
 
-## 🔗 ¿En qué se diferencia ADK de LangChain?
-LangChain se enfoca en crear un solo agente potente, conectando herramientas, memoria y lógica en cadena. ADK, en cambio, está pensado para construir varios agentes independientes que se comunican y colaboran entre ellos.
-Además, ADK está basado en un protocolo abierto para que los agentes puedan trabajar juntos fácilmente, incluso si fueron creados por distintos equipos.
-</details>
+    ## 🔗 ¿En qué se diferencia ADK de LangChain?
+    LangChain se enfoca en crear un solo agente potente, conectando herramientas, memoria y lógica en cadena. ADK, en cambio, está pensado para construir varios agentes independientes que se comunican y colaboran entre ellos.
+    Además, ADK está basado en un protocolo abierto para que los agentes puedan trabajar juntos fácilmente, incluso si fueron creados por distintos equipos.
 
-<details>
-  <summary> 🔁 ¿En qué se diferencia ADK de LangGraph? </summary> 
-LangGraph también permite crear un solo agente, pero con lógica más avanzada y ciclos.
+
+
+??? question  "🔁 ¿En qué se diferencia ADK de LangGraph?"
+    LangGraph también permite crear un solo agente, pero con lógica más avanzada y ciclos.
   
-ADK es mejor si necesitas varios agentes que trabajen juntos, cada uno haciendo una parte del trabajo, ideal para tareas más grandes o en equipos diversos.
-</details>
+    ADK es mejor si necesitas varios agentes que trabajen juntos, cada uno haciendo una parte del trabajo, ideal para tareas más grandes o en equipos diversos.
 
 
-
-<details>
-  <summary> 👥 ¿Cómo se compara ADK con Crew AI? </summary>
-Crew AI también permite crear equipos de agentes, pero con estructuras más fijas.
-ADK es más flexible: permite crear redes abiertas de agentes que pueden evolucionar, venir de diferentes equipos y seguir colaborando con el tiempo.
-</details>
+??? question  "👥 ¿Cómo se compara ADK con Crew AI?"
+    Crew AI también permite crear equipos de agentes, pero con estructuras más fijas.
+    ADK es más flexible: permite crear redes abiertas de agentes que pueden evolucionar, venir de diferentes equipos y seguir colaborando con el tiempo.
 
 
+??? question "🔒 ¿Qué ventajas de seguridad ofrece ADK?"
+    ADK tiene ventajas importantes en seguridad:
 
-<details>
-  <summary> 🔒 ¿Qué ventajas de seguridad ofrece ADK? </summary>
-  ADK tiene ventajas importantes en seguridad:
-- 🛡️ Está preparado para trabajar en entornos empresariales donde los agentes pueden venir de distintos proveedores.
-- 🔐 Incluye de forma nativa autenticación, permisos y estándares de seguridad, sin que el desarrollador tenga que configurar todo desde cero.
-- ✅ Esto lo hace ideal para entornos corporativos y colaboraciones entre agentes con diferentes orígenes.
-</details>
+    - 🛡️ Está preparado para trabajar en entornos empresariales donde los agentes pueden venir de distintos proveedores.
+    - 🔐 Incluye de forma nativa autenticación, permisos y estándares de seguridad, sin que el desarrollador tenga que configurar todo desde cero.
+    - ✅ Esto lo hace ideal para entornos corporativos y colaboraciones entre agentes con diferentes orígenes.
+
+# Instalación
+
+### Crear y activar un entorno virtual
+
+Se recomienda crear un entorno virtual de Python utilizando `venv`:
+
+```bash
+python -m venv .venv
+```
+
+Ahora puedes activar el entorno virtual usando el comando correspondiente según tu sistema operativo:
+
+#### 💻 Mac / Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+#### 🪟 Windows CMD:
+
+```cmd
+.venv\Scripts\activate.bat
+```
+
+#### 🪟 Windows PowerShell:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+---
+
+### Instalar ADK
+
+Instala el paquete con:
+
+```bash
+pip install google-adk
+```
+
+---
+
+### (Opcional) Verifica la instalación:
+
+```bash
+pip show google-adk
+```
+
 
 # Conclusión
+
 Concluimos destacando que el verdadero poder del ADK no radica únicamente en su uso de inteligencia artificial, sino en su capacidad para transformar conversaciones en acciones concretas. A lo largo de esta serie, descubriremos cómo construir, paso a paso, agentes que no solo responden, sino que entienden, actúan y generan valor real en contextos del mundo real.
 
