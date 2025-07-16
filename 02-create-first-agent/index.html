@@ -392,48 +392,31 @@ Es una librería de Python que ayuda a definir y validar datos fácilmente usand
 <pre><code class="language-python">self._fifa_tools = FIFATools()  # ✅ correcto (Pydantic no se queja)
 self.fifa_tools = FIFATools()   # ❌ da error porque no es un campo válido
 </code></pre>
-<hr />
-<h2 id="registro-de-herramientas-con-selftoolsextend">✅ Registro de herramientas con <code>self.tools.extend([...])</code></h2>
-<p>En Google ADK, los agentes usan un atributo llamado <code>.tools</code> para definir las herramientas o acciones que pueden ejecutar (como buscar estadísticas, curiosidades, etc.).</p>
-<p>Para que el agente sepa qué herramientas tiene disponibles, <strong>hay que registrarlas</strong>. En lugar de usar algo como <code>register_tool()</code> (que <strong>no existe en ADK</strong>), se hace así:</p>
-<pre><code class="language-python">self.tools.extend([
-    self.search_world_cup_info,
-    self.get_player_statistics,
-    self.get_country_performance,
-    self.get_fun_facts
-])
+<h2 id="resumen-de-arquitectura">🏗️ Resumen de Arquitectura</h2>
+<pre><code>┌────────────────────────────────────────────────────────────┐
+│                 Agente Copa Mundial FIFA                   │
+├────────────────────────────────────────────────────────────┤
+│  ┌────────────────┐    ┌────────────────┐                 │
+│  │ FIFAWorldCup   │    │ FIFATools      │                 │
+│  │ Agent (agente) │◄───┤ Herramientas   │                 │
+│  └────────────────┘    └────────────────┘                 │
+│         │                      │                           │
+│         ▼                      ▼                           │
+│  ┌────────────────┐    ┌────────────────┐                 │
+│  │ Gemini 2.0     │    │ Sistema de     │                 │
+│  │ Flash (modelo) │    │ Activación     │                 │
+│  │                │    │ de Conocimiento│                 │
+│  └────────────────┘    └────────────────┘                 │
+├────────────────────────────────────────────────────────────┤
+│             Framework de Google ADK                        │
+│  ┌────────────────┐    ┌────────────────┐                 │
+│  │ LlmAgent       │    │ BaseAgent      │                 │
+│  │ (clase base)   │    │ (Pydantic)     │                 │
+│  └────────────────┘    └────────────────┘                 │
+└────────────────────────────────────────────────────────────┘
 </code></pre>
-<p>Esto es:</p>
-<ul>
-<li>✅ Simple</li>
-<li>✅ Compatible con ADK</li>
-<li>✅ Permite registrar varias herramientas a la vez</li>
-</ul>
 <hr />
-<h3 id="en-resumen">🎯 En resumen:</h3>
-<table>
-<thead>
-<tr>
-<th>Práctica</th>
-<th>¿Para qué sirve?</th>
-<th>¿Qué evita?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>✅ <code>Pydantic</code> con atributos privados</td>
-<td>Para evitar errores al agregar propiedades nuevas al agente</td>
-<td><code>AttributeError</code> y validaciones fallidas</td>
-</tr>
-<tr>
-<td>✅ <code>self.tools.extend()</code></td>
-<td>Para registrar las herramientas correctamente en el agente</td>
-<td>Uso de métodos no soportados como <code>register_tool()</code></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="como-se-conectan-todas-estas-piezas">🧩 ¿Cómo se conectan todas estas piezas?</h3>
+<h2 id="como-se-conectan-todas-estas-piezas">🧩 ¿Cómo se conectan todas estas piezas?</h2>
 <p>Aquí está el resumen simple:</p>
 <table>
 <thead>
@@ -493,30 +476,6 @@ gcloud auth application-default login
 # Verificar proyecto
 gcloud config get-value project
 </code></pre>
-<h2 id="resumen-de-arquitectura">🏗️ Resumen de Arquitectura</h2>
-<pre><code>┌────────────────────────────────────────────────────────────┐
-│                 Agente Copa Mundial FIFA                   │
-├────────────────────────────────────────────────────────────┤
-│  ┌────────────────┐    ┌────────────────┐                 │
-│  │ FIFAWorldCup   │    │ FIFATools      │                 │
-│  │ Agent (agente) │◄───┤ Herramientas   │                 │
-│  └────────────────┘    └────────────────┘                 │
-│         │                      │                           │
-│         ▼                      ▼                           │
-│  ┌────────────────┐    ┌────────────────┐                 │
-│  │ Gemini 2.0     │    │ Sistema de     │                 │
-│  │ Flash (modelo) │    │ Activación     │                 │
-│  │                │    │ de Conocimiento│                 │
-│  └────────────────┘    └────────────────┘                 │
-├────────────────────────────────────────────────────────────┤
-│             Framework de Google ADK                        │
-│  ┌────────────────┐    ┌────────────────┐                 │
-│  │ LlmAgent       │    │ BaseAgent      │                 │
-│  │ (clase base)   │    │ (Pydantic)     │                 │
-│  └────────────────┘    └────────────────┘                 │
-└────────────────────────────────────────────────────────────┘
-</code></pre>
-<hr />
 <h2 id="estructura-del-codigo">📁 Estructura del Código</h2>
 <pre><code>fifa_agent/
 ├── __init__.py          # Inicialización del paquete para ADK Web
@@ -649,37 +608,6 @@ root_agent = get_agent()
 </tbody>
 </table>
 <p>*Una de las dos es requerida.</p>
-<hr />
-<h2 id="solucion-de-problemas">🚨 Solución de Problemas</h2>
-<h3 id="errores-comunes">Errores comunes</h3>
-<ol>
-<li>
-<p><strong>"object has no field 'fifa_tools'"</strong></p>
-</li>
-<li>
-<p>✅ Solucionado usando <code>_fifa_tools</code> como atributo privado</p>
-</li>
-<li>
-<p><strong>"'object has no attribute 'register_tool'"</strong></p>
-</li>
-<li>
-<p>✅ Solucionado usando <code>self.tools.extend()</code></p>
-</li>
-<li>
-<p><strong>Errores de autenticación</strong></p>
-</li>
-</ol>
-<p><code>bash
-   echo $GOOGLE_API_KEY
-   echo $GOOGLE_CLOUD_PROJECT
-   gcloud auth application-default print-access-token</code></p>
-<ol>
-<li><strong>Errores de importación</strong></li>
-</ol>
-<p><code>bash
-   cd /ruta/a/fifa_agent/
-   pip list | grep google-adk</code></p>
-<hr />
 <h2 id="personalizacion">🔧 Personalización</h2>
 <h3 id="agregar-nuevas-herramientas">Agregar nuevas herramientas</h3>
 <ol>
@@ -993,19 +921,7 @@ if __name__ == &quot;__main__&quot;:
 google-cloud-aiplatform&gt;=1.38.0
 </code></pre>
 <h2 id="paso-7-ejecutar-el-agente">🚀 Paso 7: Ejecutar el Agente</h2>
-<h3 id="71-configurar-variables-de-entorno">7.1 Configurar variables de entorno</h3>
-<p><strong>Si usas API Key:</strong></p>
-<pre><code class="language-bash"># Configurar tu API key
-export GOOGLE_API_KEY=&quot;AIzaSyCOiXUfp3WLhGnak-kqVokAaLOJMjt3Z80&quot;
-</code></pre>
-<p><strong>Si usas Google Cloud SDK:</strong></p>
-<pre><code class="language-bash"># Configurar proyecto de Google Cloud
-export GOOGLE_CLOUD_PROJECT=&quot;tu-proyecto-id&quot;
-
-# Verificar autenticación
-gcloud auth application-default login
-</code></pre>
-<h3 id="72-opcion-a-ejecutar-con-adk-web-recomendado">7.2 Opción A: Ejecutar con ADK Web (Recomendado)</h3>
+<h3 id="71-opcion-a-ejecutar-con-adk-web-recomendado">7.1 Opción A: Ejecutar con ADK Web (Recomendado)</h3>
 <p>ADK Web proporciona una interfaz visual para probar agentes de forma más cómoda:</p>
 <pre><code class="language-bash"># Ejecutar ADK Web
 adk web
@@ -1018,57 +934,8 @@ adk web agent.py
 - 🔍 Ver las llamadas a herramientas en detalle
 - 📊 Monitorear el rendimiento del agente
 - 🐛 Debuggear problemas fácilmente</p>
-<h3 id="73-opcion-b-ejecutar-en-linea-de-comandos">7.3 Opción B: Ejecutar en línea de comandos</h3>
+<h3 id="72-opcion-b-ejecutar-en-linea-de-comandos">7.2 Opción B: Ejecutar en línea de comandos</h3>
 <pre><code class="language-bash">python agent.py
-</code></pre>
-<h3 id="74-preparar-el-agente-para-adk-web">7.4 Preparar el agente para ADK Web</h3>
-<p>Para mejor compatibilidad con ADK Web, actualiza el final del archivo <code>agent.py</code>:</p>
-<pre><code class="language-python"># agent.py (actualización al final del archivo)
-
-async def main():
-    &quot;&quot;&quot;Función principal para probar el agente&quot;&quot;&quot;
-    agent = FIFAWorldCupAgent()
-
-    # Contexto básico
-    context = Context()
-
-    print(&quot;🏆 FIFA World Cup Agent - ¡Pregúntame sobre la Copa del Mundo!&quot;)
-    print(&quot;Ejemplos: '¿Quién ganó en 2014?', '¿Cuántos goles hizo Messi en 2022?', '¿Qué país tiene más Mundiales?'&quot;)
-    print(&quot;Escribe 'salir' para terminar.\n&quot;)
-
-    while True:
-        try:
-            query = input(&quot;👤 Tu pregunta: &quot;).strip()
-
-            if query.lower() in ['salir', 'exit', 'quit']:
-                print(&quot;👋 ¡Hasta luego!&quot;)
-                break
-
-            if not query:
-                continue
-
-            print(&quot;🤖 Gemini está procesando tu pregunta...&quot;)
-            # Ahora Gemini decide si usar herramientas y cómo responder
-            response = await agent.run(query, context)
-            print(f&quot;🏆 Agente: {response}\n&quot;)
-
-        except KeyboardInterrupt:
-            print(&quot;\n👋 ¡Hasta luego!&quot;)
-            break
-        except Exception as e:
-            print(f&quot;❌ Error: {e}\n&quot;)
-
-# Configuración para ADK Web
-def get_agent():
-    &quot;&quot;&quot;Función requerida por ADK Web para obtener el agente&quot;&quot;&quot;
-    return FIFAWorldCupAgent()
-
-if __name__ == &quot;__main__&quot;:
-    # Ejecutar en modo CLI
-    asyncio.run(main())
-else:
-    # Ejecutar en modo ADK Web
-    agent = get_agent()
 </code></pre>
 <h2 id="paso-8-pruebas-de-ejemplo">🧪 Paso 8: Pruebas de Ejemplo</h2>
 <p>Prueba tu agente con estas preguntas y observa cómo <strong>Gemini decide usar las herramientas</strong>:</p>
@@ -1160,14 +1027,6 @@ class FIFAWorldCupAgent(Agent):
 ✅ Mostrar datos curiosos y easter eggs
 ✅ Usar herramientas personalizadas para acceder a datos
 ✅ Procesar consultas en lenguaje natural</p>
-<h2 id="proximos-pasos">🔄 Próximos Pasos</h2>
-<p>En el siguiente módulo aprenderemos a:
-- Conectar múltiples agentes
-- Implementar memoria persistente
-- Agregar más herramientas externas
-- Desplegar el agente en producción</p>
-<hr />
-<p><em>💡 </em><em>Tip</em><em>: Guarda tu código en un repositorio Git para seguir tu progreso y experimentar con mejoras.</em></p>
 
 
 
