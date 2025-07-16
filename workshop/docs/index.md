@@ -2,6 +2,14 @@ Este repositorio documenta mi proceso de aprendizaje práctico con el Google Age
 
 # 🔍 Contenido del repositorio:
 
+## Módulos del Workshop
+
+1. **[Módulo 1: Introducción al ADK](01-intro/index.md)** - Fundamentos y conceptos básicos del Google Agent Development Kit
+
+2. **[Módulo 2: Creando tu Primer Agente](02-create-first-agent/index.md)** - Construye un agente especializado en la Copa Mundial de la FIFA usando Gemini 2.0 Flash
+
+## Contenido Técnico
+
 - Ejercicios y ejemplos de agentes jerárquicos.
 
 - Pruebas con modelos vía Vertex AI, Gemini y LiteLLM.

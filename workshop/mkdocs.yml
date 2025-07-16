@@ -2,6 +2,7 @@ site_name: Workshop ADK
 nav:
   - Home: index.md
   - Módulo 1: 01-intro/index.md
+  - Módulo 2: 02-create-first-agent/index.md
 theme:
   name: material
 
