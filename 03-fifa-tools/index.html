@@ -1,0 +1,1668 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../02-create-first-agent/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Módulo 3 - Workshop ADK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modulo-3-fifa-agent-con-herramientas-web-adk-tools-en-accion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Workshop ADK" class="md-header__button md-logo" aria-label="Workshop ADK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Workshop ADK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Módulo 3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Workshop ADK" class="md-nav__button md-logo" aria-label="Workshop ADK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Workshop ADK
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Módulo 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-create-first-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Módulo 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Módulo 3
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Módulo 3
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#descripcion-del-modulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Descripción del Módulo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Objetivos de Aprendizaje
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-usar-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤔 ¿Por qué Usar Tools?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🤔 ¿Por qué Usar Tools?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limitaciones-del-conocimiento-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitaciones del Conocimiento Base
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beneficios-de-las-herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beneficios de las Herramientas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-tools-en-adk" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Tipos de Tools en ADK
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Tipos de Tools en ADK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-herramientas-de-busqueda-web-google-search-nativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Herramientas de Búsqueda Web (Google Search Nativo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-apis-externas" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. APIs Externas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-bases-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Bases de Datos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-herramientas-de-analisis" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Herramientas de Análisis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-del-fifa-agent-plus" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Arquitectura del FIFA Agent Plus
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrategia-de-respuesta-hibrida" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Estrategia de Respuesta Híbrida
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-de-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Ejemplos de Casos de Uso
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Ejemplos de Casos de Uso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caso-1-informacion-historica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caso 1: Información Histórica
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caso-2-informacion-reciente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caso 2: Información Reciente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caso-3-estado-de-jugador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caso 3: Estado de Jugador
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacion-tecnica" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Implementación Técnica
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Implementación Técnica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-de-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalación de Dependencias
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-del-agente-con-google-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración del Agente con Google Search
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herramienta-de-busqueda-web-mejorada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herramienta de Búsqueda Web Mejorada
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejecutar-el-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Ejecutar el Laboratorio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Ejecutar el Laboratorio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-configuracion-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Configuración Inicial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Configuración Inicial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#archivo-requirementstxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Archivo requirements.txt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ejecucion-del-agente" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Ejecución del Agente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pruebas-sugeridas" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Pruebas Sugeridas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparacion-de-resultados" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 Comparación de Resultados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beneficios-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Beneficios Clave
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Beneficios Clave">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-precision-mejorada" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Precisión Mejorada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-experiencia-de-usuario-superior" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Experiencia de Usuario Superior
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-adaptabilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Adaptabilidad
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-transparencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Transparencia
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructura-del-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      📁 Estructura del Código
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📁 Estructura del Código">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#archivos-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Archivos Principales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-del-modelo-configpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración del Modelo (config.py)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clase-principal-del-agente-agentpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clase Principal del Agente (agent.py)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensiones-futuras" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔮 Extensiones Futuras
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Ejercicios Prácticos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 Ejercicios Prácticos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1-consulta-hibrida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 1: Consulta Híbrida
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2-informacion-reciente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 2: Información Reciente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3-comparacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 3: Comparación
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diferencias-clave-con-el-modulo-anterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 Diferencias Clave con el Módulo Anterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#puntos-clave-del-modulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Puntos Clave del Módulo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximos-pasos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏁 Próximos Pasos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#descripcion-del-modulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Descripción del Módulo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Objetivos de Aprendizaje
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-usar-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤔 ¿Por qué Usar Tools?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🤔 ¿Por qué Usar Tools?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limitaciones-del-conocimiento-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitaciones del Conocimiento Base
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beneficios-de-las-herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beneficios de las Herramientas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-tools-en-adk" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Tipos de Tools en ADK
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Tipos de Tools en ADK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-herramientas-de-busqueda-web-google-search-nativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Herramientas de Búsqueda Web (Google Search Nativo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-apis-externas" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. APIs Externas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-bases-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Bases de Datos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-herramientas-de-analisis" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Herramientas de Análisis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-del-fifa-agent-plus" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Arquitectura del FIFA Agent Plus
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrategia-de-respuesta-hibrida" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Estrategia de Respuesta Híbrida
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-de-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Ejemplos de Casos de Uso
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Ejemplos de Casos de Uso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caso-1-informacion-historica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caso 1: Información Histórica
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caso-2-informacion-reciente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caso 2: Información Reciente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caso-3-estado-de-jugador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caso 3: Estado de Jugador
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacion-tecnica" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Implementación Técnica
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Implementación Técnica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-de-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalación de Dependencias
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-del-agente-con-google-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración del Agente con Google Search
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herramienta-de-busqueda-web-mejorada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herramienta de Búsqueda Web Mejorada
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejecutar-el-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Ejecutar el Laboratorio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Ejecutar el Laboratorio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-configuracion-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Configuración Inicial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Configuración Inicial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#archivo-requirementstxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Archivo requirements.txt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ejecucion-del-agente" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Ejecución del Agente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pruebas-sugeridas" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Pruebas Sugeridas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparacion-de-resultados" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 Comparación de Resultados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beneficios-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Beneficios Clave
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Beneficios Clave">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-precision-mejorada" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Precisión Mejorada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-experiencia-de-usuario-superior" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Experiencia de Usuario Superior
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-adaptabilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Adaptabilidad
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-transparencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Transparencia
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructura-del-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      📁 Estructura del Código
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📁 Estructura del Código">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#archivos-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Archivos Principales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-del-modelo-configpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración del Modelo (config.py)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clase-principal-del-agente-agentpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clase Principal del Agente (agent.py)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensiones-futuras" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔮 Extensiones Futuras
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Ejercicios Prácticos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 Ejercicios Prácticos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1-consulta-hibrida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 1: Consulta Híbrida
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2-informacion-reciente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 2: Información Reciente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3-comparacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 3: Comparación
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diferencias-clave-con-el-modulo-anterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 Diferencias Clave con el Módulo Anterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#puntos-clave-del-modulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Puntos Clave del Módulo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximos-pasos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏁 Próximos Pasos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="modulo-3-fifa-agent-con-herramientas-web-adk-tools-en-accion">Módulo 3: FIFA Agent con Herramientas Web - ADK Tools en Acción</h1>
+<h2 id="descripcion-del-modulo">📋 Descripción del Módulo</h2>
+<p>En este módulo expandiremos el agente FIFA básico añadiendo <strong>herramientas de búsqueda web</strong> usando Google Search nativo de ADK para demostrar cómo los agentes pueden acceder a información actualizada más allá de su conocimiento base.</p>
+<h2 id="objetivos-de-aprendizaje">🎯 Objetivos de Aprendizaje</h2>
+<p>Al completar este módulo podrás:</p>
+<ul>
+<li>✅ Entender por qué los agentes necesitan herramientas</li>
+<li>✅ Conocer los tipos de tools disponibles en ADK  </li>
+<li>✅ Implementar herramientas de búsqueda web</li>
+<li>✅ Crear estrategias híbridas (conocimiento + web)</li>
+<li>✅ Evaluar cuándo usar cada tipo de herramienta</li>
+</ul>
+<h2 id="por-que-usar-tools">🤔 ¿Por qué Usar Tools?</h2>
+<h3 id="limitaciones-del-conocimiento-base">Limitaciones del Conocimiento Base</h3>
+<p>Los modelos como Gemini tienen restricciones:</p>
+<pre><code class="language-mermaid">graph TD
+    A[Modelo Base] --&gt; B[Fecha de Corte]
+    A --&gt; C[Información Estática]
+    A --&gt; D[Especificidad Limitada]
+    A --&gt; E[Sin Verificación en Tiempo Real]
+
+    B --&gt; F[❌ Datos Desactualizados]
+    C --&gt; G[❌ No se Adapta a Cambios]
+    D --&gt; H[❌ Falta Detalles Específicos]
+    E --&gt; I[❌ No Puede Contrastar]
+</code></pre>
+<h3 id="beneficios-de-las-herramientas">Beneficios de las Herramientas</h3>
+<pre><code class="language-mermaid">graph TD
+    A[Tools Integration] --&gt; B[Información Actualizada]
+    A --&gt; C[Verificación Cruzada]
+    A --&gt; D[Datos Específicos]
+    A --&gt; E[Acciones Dinámicas]
+
+    B --&gt; F[✅ Tiempo Real]
+    C --&gt; G[✅ Mayor Confiabilidad]
+    D --&gt; H[✅ Precisión Específica]
+    E --&gt; I[✅ Capacidades Expandidas]
+</code></pre>
+<h2 id="tipos-de-tools-en-adk">🛠️ Tipos de Tools en ADK</h2>
+<h3 id="1-herramientas-de-busqueda-web-google-search-nativo">1. Herramientas de Búsqueda Web (Google Search Nativo)</h3>
+<pre><code class="language-python">from google.adk.tools import google_search
+
+async def search_web_info(self, query: str) -&gt; Dict[str, Any]:
+    &quot;&quot;&quot;Usa Google Search nativo de ADK&quot;&quot;&quot;
+    search_result = await google_search(query)
+    return search_result
+</code></pre>
+<h3 id="2-apis-externas">2. APIs Externas</h3>
+<pre><code class="language-python">async def get_weather_data(self, location: str) -&gt; Dict[str, Any]:
+    &quot;&quot;&quot;Integración con servicios externos&quot;&quot;&quot;
+    pass
+</code></pre>
+<h3 id="3-bases-de-datos">3. Bases de Datos</h3>
+<pre><code class="language-python">async def query_database(self, sql: str) -&gt; Dict[str, Any]:
+    &quot;&quot;&quot;Consultas a bases de datos&quot;&quot;&quot;
+    pass
+</code></pre>
+<h3 id="4-herramientas-de-analisis">4. Herramientas de Análisis</h3>
+<pre><code class="language-python">async def analyze_document(self, document: str) -&gt; Dict[str, Any]:
+    &quot;&quot;&quot;Procesamiento de documentos&quot;&quot;&quot;
+    pass
+</code></pre>
+<h2 id="arquitectura-del-fifa-agent-plus">🏗️ Arquitectura del FIFA Agent Plus</h2>
+<pre><code class="language-mermaid">graph TB
+    subgraph &quot;FIFAWorldCupAgentPlus&quot;
+        A[Gemini 2.0 Flash&lt;br/&gt;Conocimiento Base]
+
+        subgraph &quot;Tools Originales&quot;
+            B1[search_world_cup_info]
+            B2[get_player_statistics]  
+            B3[get_country_performance]
+            B4[get_fun_facts]
+        end
+
+        subgraph &quot;Tools Web - NUEVAS&quot;
+            C1[🌐 search_web_info]
+            C2[📰 get_current_fifa_news]
+            C3[👤 verify_player_status]
+        end
+
+        A --&gt; B1
+        A --&gt; B2
+        A --&gt; B3
+        A --&gt; B4
+        A --&gt; C1
+        A --&gt; C2
+        A --&gt; C3
+    end
+
+    C1 --&gt; D[Google Search ADK]
+    C2 --&gt; E[Google Search ADK]
+    C3 --&gt; F[Google Search ADK]
+</code></pre>
+<h2 id="estrategia-de-respuesta-hibrida">💡 Estrategia de Respuesta Híbrida</h2>
+<p>El agente usa una lógica inteligente para decidir qué herramientas usar:</p>
+<pre><code class="language-mermaid">flowchart TD
+    A[Usuario hace pregunta] --&gt; B{¿Es información histórica?}
+
+    B --&gt;|Sí| C[Usar conocimiento interno]
+    B --&gt;|No| D{¿Requiere datos actuales?}
+
+    D --&gt;|Sí| E[Combinar conocimiento + web]
+    D --&gt;|Incierto| F[Verificar con búsqueda web]
+
+    C --&gt; G[Respuesta basada en Gemini]
+    E --&gt; H[Respuesta híbrida]
+    F --&gt; I[Respuesta verificada]
+</code></pre>
+<h2 id="ejemplos-de-casos-de-uso">📊 Ejemplos de Casos de Uso</h2>
+<h3 id="caso-1-informacion-historica">Caso 1: Información Histórica</h3>
+<pre><code>👤 Usuario: &quot;¿Quién ganó la Copa del Mundo de 1998?&quot;
+
+🤖 Agente: 
+1. Detecta: información histórica
+2. Usa: search_world_cup_info(&quot;ganador&quot;, 1998)  
+3. Responde: con conocimiento interno (suficiente)
+</code></pre>
+<h3 id="caso-2-informacion-reciente">Caso 2: Información Reciente</h3>
+<pre><code>👤 Usuario: &quot;¿Qué equipos se clasificaron para el Mundial 2026?&quot;
+
+🤖 Agente:
+1. Detecta: información futura/actual
+2. Usa: search_web_info(&quot;clasificados Mundial 2026&quot;)
+3. Responde: combinando conocimiento + datos web
+</code></pre>
+<h3 id="caso-3-estado-de-jugador">Caso 3: Estado de Jugador</h3>
+<pre><code>👤 Usuario: &quot;¿Messi sigue en el PSG?&quot;
+
+🤖 Agente:
+1. Detecta: estado actual específico
+2. Usa: verify_player_current_status(&quot;Lionel Messi&quot;)
+3. Responde: con información verificada y actual
+</code></pre>
+<h2 id="implementacion-tecnica">🔧 Implementación Técnica</h2>
+<h3 id="instalacion-de-dependencias">Instalación de Dependencias</h3>
+<pre><code class="language-bash">pip install google-adk
+</code></pre>
+<h3 id="configuracion-del-agente-con-google-search">Configuración del Agente con Google Search</h3>
+<pre><code class="language-python">from google.adk import Agent
+from google.adk.models.google_llm import Gemini
+from google.adk.tools import google_search
+
+class FIFAWorldCupAgentPlus(Agent):
+    def __init__(self):
+        model = Gemini(
+            model=&quot;gemini-2.0-flash-exp&quot;,
+            api_key=os.getenv(&quot;GOOGLE_API_KEY&quot;)
+        )
+
+        super().__init__(
+            name=&quot;FIFA Agent Plus&quot;,
+            model=model,
+            tools=[google_search]  # Google Search nativo incluido
+        )
+</code></pre>
+<h3 id="herramienta-de-busqueda-web-mejorada">Herramienta de Búsqueda Web Mejorada</h3>
+<pre><code class="language-python">async def search_web_info(self, query: str, max_results: int = 3) -&gt; Dict[str, Any]:
+    try:
+        current_year = datetime.now().year
+
+        # Construir consultas mejoradas
+        enhanced_queries = [
+            f&quot;FIFA {query} {current_year}&quot;,
+            f&quot;FIFA World Cup {query} {current_year}&quot;,
+            f&quot;{query} football soccer {current_year}&quot;
+        ]
+
+        all_results = []
+
+        for search_query in enhanced_queries[:max_results]:
+            # Usar Google Search nativo de ADK
+            search_result = await google_search(search_query)
+
+            if search_result and search_result.get('status') == 'success':
+                results = search_result.get('results', [])
+
+                for result in results:
+                    if self._is_football_related(result.get('title', '') + ' ' + result.get('snippet', '')):
+                        all_results.append({
+                            &quot;title&quot;: result.get('title', ''),
+                            &quot;url&quot;: result.get('url', ''),
+                            &quot;snippet&quot;: result.get('snippet', ''),
+                            &quot;source&quot;: &quot;Google Search&quot;,
+                            &quot;query_used&quot;: search_query
+                        })
+
+        return {
+            &quot;action&quot;: &quot;web_search_completed&quot;,
+            &quot;query&quot;: query,
+            &quot;results_found&quot;: len(all_results),
+            &quot;web_info&quot;: all_results[:max_results],
+            &quot;instruction&quot;: &quot;Información actualizada encontrada usando Google Search ADK&quot;
+        }
+
+    except Exception as e:
+        return {
+            &quot;action&quot;: &quot;web_search_failed&quot;,
+            &quot;error&quot;: str(e),
+            &quot;fallback_instruction&quot;: &quot;Usar conocimiento interno de Gemini&quot;
+        }
+</code></pre>
+<h2 id="ejecutar-el-laboratorio">🚀 Ejecutar el Laboratorio</h2>
+<h3 id="1-configuracion-inicial">1. Configuración Inicial</h3>
+<pre><code class="language-bash">cd labs/lab-3-fifa-tools
+pip install -r requirements.txt
+export GOOGLE_API_KEY=&quot;tu_api_key_aqui&quot;
+</code></pre>
+<h4 id="archivo-requirementstxt">Archivo requirements.txt</h4>
+<pre><code>google-adk&gt;=0.1.0
+</code></pre>
+<h3 id="2-ejecucion-del-agente">2. Ejecución del Agente</h3>
+<pre><code class="language-bash">python agent.py
+</code></pre>
+<p><strong>Salida esperada:</strong></p>
+<pre><code>🏆 FIFA World Cup Agent - Gemini 2.0 Flash Exp
+🧠 Capacidades:
+   • Conocimiento extenso sobre Copas del Mundo
+   • Estadísticas detalladas de jugadores
+   • Récords y curiosidades históricas
+   • Análisis de rendimiento por países
+
+Ejemplos de consultas:
+• '¿Quién ganó la Copa del Mundo 2022?'
+• '¿Cuáles son los máximos goleadores de Mundiales?'
+• '¿Cuántas Copas del Mundo ha ganado Brasil?'
+• 'Datos curiosos sobre la Copa del Mundo'
+
+👤 Tu pregunta:
+</code></pre>
+<h3 id="3-pruebas-sugeridas">3. Pruebas Sugeridas</h3>
+<p><strong>Consultas Históricas:</strong>
+- "¿Quién ganó en 2018?"
+- "¿Cuántos goles hizo Pelé?"</p>
+<p><strong>Consultas Actuales:</strong>
+- "¿Cómo va la clasificación para 2026?"
+- "¿Qué noticias hay de la FIFA?"</p>
+<p><strong>Verificación de Jugadores:</strong>
+- "¿En qué club juega Mbappé?"
+- "¿Cristiano está lesionado?"</p>
+<h2 id="comparacion-de-resultados">📈 Comparación de Resultados</h2>
+<table>
+<thead>
+<tr>
+<th>Tipo de Consulta</th>
+<th>Agent Básico</th>
+<th>Agent Plus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Datos históricos</strong></td>
+<td>✅ Excelente</td>
+<td>✅ Excelente</td>
+</tr>
+<tr>
+<td><strong>Información reciente</strong></td>
+<td>❌ Limitado</td>
+<td>✅ Actualizado</td>
+</tr>
+<tr>
+<td><strong>Estado de jugadores</strong></td>
+<td>⚠️ Desactualizado</td>
+<td>✅ Verificado</td>
+</tr>
+<tr>
+<td><strong>Noticias FIFA</strong></td>
+<td>❌ No disponible</td>
+<td>✅ Tiempo real</td>
+</tr>
+<tr>
+<td><strong>Verificación de datos</strong></td>
+<td>❌ No posible</td>
+<td>✅ Cruzada</td>
+</tr>
+</tbody>
+</table>
+<h2 id="beneficios-clave">🎯 Beneficios Clave</h2>
+<h3 id="1-precision-mejorada">1. <strong>Precisión Mejorada</strong></h3>
+<ul>
+<li>Combinación de conocimiento base + datos actuales</li>
+<li>Verificación cruzada de información controvertida</li>
+</ul>
+<h3 id="2-experiencia-de-usuario-superior">2. <strong>Experiencia de Usuario Superior</strong></h3>
+<ul>
+<li>Respuestas siempre actualizadas</li>
+<li>Mayor confianza en la información proporcionada</li>
+</ul>
+<h3 id="3-adaptabilidad">3. <strong>Adaptabilidad</strong></h3>
+<ul>
+<li>El agente decide inteligentemente qué herramientas usar</li>
+<li>Respuesta apropiada según el contexto</li>
+</ul>
+<h3 id="4-transparencia">4. <strong>Transparencia</strong></h3>
+<ul>
+<li>Fuentes verificables</li>
+<li>Origen claro de los datos</li>
+</ul>
+<h2 id="estructura-del-codigo">📁 Estructura del Código</h2>
+<h3 id="archivos-principales">Archivos Principales</h3>
+<pre><code>labs/lab-3-fifa-tools/
+├── agent.py                 # Agente principal con Google Search
+├── config.py               # Configuración y prompts del sistema
+├── fifa_tools_enhanced.py  # Tools mejoradas con búsqueda web
+├── requirements.txt        # Dependencias del proyecto
+└── README.md              # Documentación técnica detallada
+</code></pre>
+<h3 id="configuracion-del-modelo-configpy">Configuración del Modelo (config.py)</h3>
+<pre><code class="language-python">MODEL_CONFIG = {
+    &quot;model_name&quot;: &quot;gemini-2.0-flash-exp&quot;,
+    &quot;api_key&quot;: os.getenv(&quot;GOOGLE_API_KEY&quot;),
+    &quot;temperature&quot;: 0.7,
+    &quot;max_output_tokens&quot;: 1500,
+}
+</code></pre>
+<h3 id="clase-principal-del-agente-agentpy">Clase Principal del Agente (agent.py)</h3>
+<pre><code class="language-python">class FIFAWorldCupAgentPlus(Agent):
+    def __init__(self):
+        model = Gemini(**model_kwargs)
+
+        super().__init__(
+            name=AGENT_CONFIG[&quot;name&quot;],
+            description=AGENT_CONFIG[&quot;description&quot;],
+            model=model,
+            instruction=SYSTEM_PROMPT,
+            tools=[google_search]  # Google Search nativo incluido
+        )
+</code></pre>
+<h2 id="extensiones-futuras">🔮 Extensiones Futuras</h2>
+<ul>
+<li><strong>Análisis de video</strong>: Highlights y estadísticas visuales</li>
+<li><strong>APIs oficiales</strong>: Integración con FIFA/UEFA</li>
+<li><strong>Machine Learning</strong>: Predicciones y análisis</li>
+<li><strong>Multilingüe</strong>: Soporte en múltiples idiomas</li>
+<li><strong>Notificaciones</strong>: Actualizaciones automáticas</li>
+</ul>
+<h2 id="ejercicios-practicos">📝 Ejercicios Prácticos</h2>
+<h3 id="ejercicio-1-consulta-hibrida">Ejercicio 1: Consulta Híbrida</h3>
+<p>Pregunta algo que requiera tanto conocimiento histórico como verificación actual.</p>
+<h3 id="ejercicio-2-informacion-reciente">Ejercicio 2: Información Reciente</h3>
+<p>Busca noticias sobre el próximo Mundial o torneos actuales.</p>
+<h3 id="ejercicio-3-comparacion">Ejercicio 3: Comparación</h3>
+<p>Compara las respuestas del agente básico vs el agente plus.</p>
+<h2 id="diferencias-clave-con-el-modulo-anterior">🎓 Diferencias Clave con el Módulo Anterior</h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Módulo 2 (Básico)</th>
+<th>Módulo 3 (Plus)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Modelo</strong></td>
+<td>Gemini 2.0 Flash</td>
+<td>Gemini 2.0 Flash Exp</td>
+</tr>
+<tr>
+<td><strong>Búsqueda Web</strong></td>
+<td>❌ No disponible</td>
+<td>✅ Google Search nativo</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Solo conocimiento interno</td>
+<td>Híbrido (interno + web)</td>
+</tr>
+<tr>
+<td><strong>Información</strong></td>
+<td>Limitada por fecha de corte</td>
+<td>Actualizada en tiempo real</td>
+</tr>
+<tr>
+<td><strong>Verificación</strong></td>
+<td>No posible</td>
+<td>Cruzada con fuentes web</td>
+</tr>
+<tr>
+<td><strong>Complejidad</strong></td>
+<td>Básica</td>
+<td>Avanzada con strategy pattern</td>
+</tr>
+</tbody>
+</table>
+<h2 id="puntos-clave-del-modulo">✅ Puntos Clave del Módulo</h2>
+<ul>
+<li>Los <strong>tools amplían las capacidades</strong> de los agentes más allá del conocimiento base</li>
+<li><strong>Google Search nativo de ADK</strong> proporciona búsqueda web sin configuración adicional</li>
+<li>Las <strong>estrategias híbridas</strong> combinan lo mejor de ambos mundos</li>
+<li>La <strong>decisión inteligente</strong> sobre qué herramienta usar es crucial</li>
+<li>Las <strong>herramientas web</strong> mantienen la información actualizada</li>
+<li>La <strong>verificación cruzada</strong> mejora la confiabilidad</li>
+</ul>
+<h2 id="proximos-pasos">🏁 Próximos Pasos</h2>
+<p>Has completado el módulo de herramientas web. Tu agente FIFA ahora puede:
+- ✅ Acceder a información actualizada via Google Search
+- ✅ Combinar conocimiento interno con datos web
+- ✅ Verificar información en tiempo real
+- ✅ Decidir inteligentemente qué herramientas usar</p>
+<p>¡Continúa al siguiente módulo para aprender sobre evaluación y despliegue de agentes! 🚀</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
