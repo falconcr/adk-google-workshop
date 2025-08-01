@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#modulo-3-fifa-agent-con-herramientas-web-adk-tools-en-accion" class="md-skip">
+        <a href="#modulo-3-fifa-tools-herramientas-web-con-google-search" class="md-skip">
           Skip to content
         </a>
       
@@ -338,9 +338,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-herramientas-de-busqueda-web-google-search-nativo" class="md-nav__link">
+  <a href="#1-google-search-nativo-de-adk" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Herramientas de Búsqueda Web (Google Search Nativo)
+      1. Google Search Nativo de ADK
     </span>
   </a>
   
@@ -467,9 +467,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#herramienta-de-busqueda-web-mejorada" class="md-nav__link">
+  <a href="#sistema-de-prompts-inteligente" class="md-nav__link">
     <span class="md-ellipsis">
-      Herramienta de Búsqueda Web Mejorada
+      Sistema de Prompts Inteligente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herramientas-fifa-mejoradas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herramientas FIFA Mejoradas
     </span>
   </a>
   
@@ -813,9 +822,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-herramientas-de-busqueda-web-google-search-nativo" class="md-nav__link">
+  <a href="#1-google-search-nativo-de-adk" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Herramientas de Búsqueda Web (Google Search Nativo)
+      1. Google Search Nativo de ADK
     </span>
   </a>
   
@@ -942,9 +951,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#herramienta-de-busqueda-web-mejorada" class="md-nav__link">
+  <a href="#sistema-de-prompts-inteligente" class="md-nav__link">
     <span class="md-ellipsis">
-      Herramienta de Búsqueda Web Mejorada
+      Sistema de Prompts Inteligente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#herramientas-fifa-mejoradas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herramientas FIFA Mejoradas
     </span>
   </a>
   
@@ -1208,9 +1226,9 @@
 
 
 
-<h1 id="modulo-3-fifa-agent-con-herramientas-web-adk-tools-en-accion">Módulo 3: FIFA Agent con Herramientas Web - ADK Tools en Acción</h1>
+<h1 id="modulo-3-fifa-tools-herramientas-web-con-google-search">Módulo 3: FIFA Tools - Herramientas Web con Google Search</h1>
 <h2 id="descripcion-del-modulo">📋 Descripción del Módulo</h2>
-<p>En este módulo expandiremos el agente FIFA básico añadiendo <strong>herramientas de búsqueda web</strong> usando Google Search nativo de ADK para demostrar cómo los agentes pueden acceder a información actualizada más allá de su conocimiento base.</p>
+<p>Este módulo demuestra cómo expandir las capacidades de un agente ADK usando <strong>herramientas web</strong> integradas. Construimos sobre el FIFA Agent básico añadiendo Google Search nativo para acceder a información actualizada en tiempo real.</p>
 <h2 id="objetivos-de-aprendizaje">🎯 Objetivos de Aprendizaje</h2>
 <p>Al completar este módulo podrás:</p>
 <ul>
@@ -1247,13 +1265,17 @@
     E --&gt; I[✅ Capacidades Expandidas]
 </code></pre>
 <h2 id="tipos-de-tools-en-adk">🛠️ Tipos de Tools en ADK</h2>
-<h3 id="1-herramientas-de-busqueda-web-google-search-nativo">1. Herramientas de Búsqueda Web (Google Search Nativo)</h3>
+<h3 id="1-google-search-nativo-de-adk">1. Google Search Nativo de ADK</h3>
 <pre><code class="language-python">from google.adk.tools import google_search
 
-async def search_web_info(self, query: str) -&gt; Dict[str, Any]:
-    &quot;&quot;&quot;Usa Google Search nativo de ADK&quot;&quot;&quot;
-    search_result = await google_search(query)
-    return search_result
+# Google Search se registra automáticamente en el agente
+class FIFAWorldCupAgentPlus(Agent):
+    def __init__(self):
+        super().__init__(
+            name=&quot;FIFA Agent Plus&quot;,
+            model=model,
+            tools=[google_search]  # Search automático
+        )
 </code></pre>
 <h3 id="2-apis-externas">2. APIs Externas</h3>
 <pre><code class="language-python">async def get_weather_data(self, location: str) -&gt; Dict[str, Any]:
@@ -1353,60 +1375,55 @@ from google.adk.tools import google_search
 class FIFAWorldCupAgentPlus(Agent):
     def __init__(self):
         model = Gemini(
-            model=&quot;gemini-2.0-flash-exp&quot;,
-            api_key=os.getenv(&quot;GOOGLE_API_KEY&quot;)
+            model=&quot;gemini-2.5-flash&quot;,
+            location=&quot;us-central1&quot;,
+            api_key=os.getenv(&quot;GOOGLE_API_KEY&quot;),
+            temperature=0.7
         )
 
         super().__init__(
-            name=&quot;FIFA Agent Plus&quot;,
+            name=&quot;FIFA_World_Cup_Expert_Plus&quot;,
+            description=&quot;Experto FIFA con herramientas web&quot;,
             model=model,
+            instruction=SYSTEM_PROMPT,
             tools=[google_search]  # Google Search nativo incluido
         )
 </code></pre>
-<h3 id="herramienta-de-busqueda-web-mejorada">Herramienta de Búsqueda Web Mejorada</h3>
-<pre><code class="language-python">async def search_web_info(self, query: str, max_results: int = 3) -&gt; Dict[str, Any]:
-    try:
-        current_year = datetime.now().year
+<h3 id="sistema-de-prompts-inteligente">Sistema de Prompts Inteligente</h3>
+<p>El agente utiliza un prompt del sistema avanzado que instruye a Gemini 2.5 Flash sobre cuándo usar Google Search:</p>
+<pre><code class="language-python">SYSTEM_PROMPT = &quot;&quot;&quot;
+Eres un experto en la Copa Mundial de la FIFA con conocimiento extensivo desde 1930 hasta 2022.
 
-        # Construir consultas mejoradas
-        enhanced_queries = [
-            f&quot;FIFA {query} {current_year}&quot;,
-            f&quot;FIFA World Cup {query} {current_year}&quot;,
-            f&quot;{query} football soccer {current_year}&quot;
-        ]
+PROTOCOLO DE BÚSQUEDA:
+1. PRIMERO: Usa tu conocimiento interno extensivo para responder
+2. SI NO TIENES la información específica o es sobre eventos de 2024-2025: USA google_search inmediatamente
+3. Situaciones donde DEBES usar google_search:
+   - Información sobre 2024, 2025 o eventos &quot;actuales/recientes&quot;
+   - Noticias de FIFA o fútbol actuales
+   - Estado actual de jugadores (club, lesiones, transferencias)
+   - Próximos torneos o eventos de FIFA
+   - Información que claramente no está en tu conocimiento base
 
-        all_results = []
+IMPORTANTE: Si la consulta requiere información que no tienes o es sobre eventos posteriores a 2022, usa google_search inmediatamente para obtener datos actualizados.
+&quot;&quot;&quot;
+</code></pre>
+<h3 id="herramientas-fifa-mejoradas">Herramientas FIFA Mejoradas</h3>
+<pre><code class="language-python">class FIFAToolsEnhanced:
+    &quot;&quot;&quot;Herramientas que complementan el conocimiento base con capacidades web&quot;&quot;&quot;
 
-        for search_query in enhanced_queries[:max_results]:
-            # Usar Google Search nativo de ADK
-            search_result = await google_search(search_query)
-
-            if search_result and search_result.get('status') == 'success':
-                results = search_result.get('results', [])
-
-                for result in results:
-                    if self._is_football_related(result.get('title', '') + ' ' + result.get('snippet', '')):
-                        all_results.append({
-                            &quot;title&quot;: result.get('title', ''),
-                            &quot;url&quot;: result.get('url', ''),
-                            &quot;snippet&quot;: result.get('snippet', ''),
-                            &quot;source&quot;: &quot;Google Search&quot;,
-                            &quot;query_used&quot;: search_query
-                        })
-
+    async def search_world_cup_info(self, query: str, year: Optional[int] = None):
+        &quot;&quot;&quot;Permite a Gemini buscar información específica sobre Mundiales&quot;&quot;&quot;
         return {
-            &quot;action&quot;: &quot;web_search_completed&quot;,
-            &quot;query&quot;: query,
-            &quot;results_found&quot;: len(all_results),
-            &quot;web_info&quot;: all_results[:max_results],
-            &quot;instruction&quot;: &quot;Información actualizada encontrada usando Google Search ADK&quot;
+            &quot;action&quot;: &quot;use_gemini_knowledge&quot;,
+            &quot;instruction&quot;: &quot;Usa tu conocimiento interno sobre la Copa del Mundo&quot;
         }
 
-    except Exception as e:
+    # Las herramientas web ahora están deprecadas en favor de google_search directo
+    async def search_web_info(self, query: str, max_results: int = 3):
+        &quot;&quot;&quot;DEPRECADO: El modelo ahora usa google_search directamente&quot;&quot;&quot;
         return {
-            &quot;action&quot;: &quot;web_search_failed&quot;,
-            &quot;error&quot;: str(e),
-            &quot;fallback_instruction&quot;: &quot;Usar conocimiento interno de Gemini&quot;
+            &quot;action&quot;: &quot;deprecated_method&quot;,
+            &quot;instruction&quot;: &quot;Usa google_search tool directamente para información actualizada.&quot;
         }
 </code></pre>
 <h2 id="ejecutar-el-laboratorio">🚀 Ejecutar el Laboratorio</h2>
@@ -1422,18 +1439,22 @@ export GOOGLE_API_KEY=&quot;tu_api_key_aqui&quot;
 <pre><code class="language-bash">python agent.py
 </code></pre>
 <p><strong>Salida esperada:</strong></p>
-<pre><code>🏆 FIFA World Cup Agent - Gemini 2.0 Flash Exp
+<pre><code>🏆 FIFA World Cup Agent Plus - Gemini 2.5 Flash con Google Search
 🧠 Capacidades:
-   • Conocimiento extenso sobre Copas del Mundo
-   • Estadísticas detalladas de jugadores
-   • Récords y curiosidades históricas
+   • Conocimiento extenso sobre Copas del Mundo (1930-2022)
+   • Búsqueda web en tiempo real con Google Search
+   • Estadísticas detalladas de jugadores y países
+   • Noticias actuales de FIFA y fútbol
+   • Datos curiosos y récords históricos
    • Análisis de rendimiento por países
 
 Ejemplos de consultas:
 • '¿Quién ganó la Copa del Mundo 2022?'
+• '¿Cuáles son las últimas noticias de FIFA?'
 • '¿Cuáles son los máximos goleadores de Mundiales?'
-• '¿Cuántas Copas del Mundo ha ganado Brasil?'
+• 'Información actual sobre Messi 2024'
 • 'Datos curiosos sobre la Copa del Mundo'
+• '¿Cuál fue el mejor Mundial de la historia?'
 
 👤 Tu pregunta:
 </code></pre>
@@ -1516,8 +1537,10 @@ Ejemplos de consultas:
 </code></pre>
 <h3 id="configuracion-del-modelo-configpy">Configuración del Modelo (config.py)</h3>
 <pre><code class="language-python">MODEL_CONFIG = {
-    &quot;model_name&quot;: &quot;gemini-2.0-flash-exp&quot;,
+    &quot;model_name&quot;: &quot;gemini-2.5-flash&quot;,
+    &quot;project_id&quot;: os.getenv(&quot;GOOGLE_CLOUD_PROJECT&quot;),
     &quot;api_key&quot;: os.getenv(&quot;GOOGLE_API_KEY&quot;),
+    &quot;location&quot;: &quot;us-central1&quot;,
     &quot;temperature&quot;: 0.7,
     &quot;max_output_tokens&quot;: 1500,
 }
@@ -1563,7 +1586,7 @@ Ejemplos de consultas:
 <tr>
 <td><strong>Modelo</strong></td>
 <td>Gemini 2.0 Flash</td>
-<td>Gemini 2.0 Flash Exp</td>
+<td>Gemini 2.5 Flash</td>
 </tr>
 <tr>
 <td><strong>Búsqueda Web</strong></td>
@@ -1588,7 +1611,7 @@ Ejemplos de consultas:
 <tr>
 <td><strong>Complejidad</strong></td>
 <td>Básica</td>
-<td>Avanzada con strategy pattern</td>
+<td>Avanzada con herramientas web</td>
 </tr>
 </tbody>
 </table>
