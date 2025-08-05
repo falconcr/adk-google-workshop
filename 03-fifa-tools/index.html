@@ -709,6 +709,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#analisis-comparativo-detallado" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Análisis Comparativo Detallado
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Análisis Comparativo Detallado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diferencias-arquitectonicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diferencias Arquitectónicas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrategias-de-respuesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estrategias de Respuesta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capacidades-expandidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capacidades Expandidas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#puntos-clave-del-modulo" class="md-nav__link">
     <span class="md-ellipsis">
       ✅ Puntos Clave del Módulo
@@ -1193,6 +1235,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#analisis-comparativo-detallado" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Análisis Comparativo Detallado
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Análisis Comparativo Detallado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diferencias-arquitectonicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diferencias Arquitectónicas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrategias-de-respuesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estrategias de Respuesta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capacidades-expandidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capacidades Expandidas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#puntos-clave-del-modulo" class="md-nav__link">
     <span class="md-ellipsis">
       ✅ Puntos Clave del Módulo
@@ -1578,8 +1662,8 @@ Ejemplos de consultas:
 <thead>
 <tr>
 <th>Aspecto</th>
-<th>Módulo 2 (Básico)</th>
-<th>Módulo 3 (Plus)</th>
+<th>fifa_agent (Básico)</th>
+<th>lab-3-fifa-tools (Plus)</th>
 </tr>
 </thead>
 <tbody>
@@ -1595,7 +1679,7 @@ Ejemplos de consultas:
 </tr>
 <tr>
 <td><strong>Tools</strong></td>
-<td>Solo conocimiento interno</td>
+<td>Activación de conocimiento</td>
 <td>Híbrido (interno + web)</td>
 </tr>
 <tr>
@@ -1609,9 +1693,79 @@ Ejemplos de consultas:
 <td>Cruzada con fuentes web</td>
 </tr>
 <tr>
-<td><strong>Complejidad</strong></td>
+<td><strong>Arquitectura</strong></td>
+<td>Herramientas "simuladas"</td>
+<td>Tools funcionales reales</td>
+</tr>
+<tr>
+<td><strong>Tokens máximos</strong></td>
+<td>1000</td>
+<td>1500</td>
+</tr>
+<tr>
+<td><strong>Configuración</strong></td>
 <td>Básica</td>
-<td>Avanzada con herramientas web</td>
+<td>Avanzada con protocolo web</td>
+</tr>
+</tbody>
+</table>
+<h2 id="analisis-comparativo-detallado">📊 Análisis Comparativo Detallado</h2>
+<h3 id="diferencias-arquitectonicas">Diferencias Arquitectónicas</h3>
+<p><strong>fifa_agent (Básico)</strong>:
+- Usa herramientas de "activación de conocimiento"
+- Solo accede al conocimiento interno de Gemini
+- Herramientas que instruyen al modelo sobre qué conocimiento usar</p>
+<p><strong>lab-3-fifa-tools (Avanzado)</strong>:
+- Integra Google Search nativo de ADK
+- Combina conocimiento interno con búsqueda web real
+- Herramientas funcionales que acceden a información externa</p>
+<h3 id="estrategias-de-respuesta">Estrategias de Respuesta</h3>
+<p><strong>fifa_agent</strong>: Enfoque de conocimiento puro</p>
+<pre><code class="language-python">return {
+    &quot;action&quot;: &quot;use_gemini_knowledge&quot;,
+    &quot;instruction&quot;: &quot;Usa tu conocimiento interno sobre la Copa del Mundo...&quot;
+}
+</code></pre>
+<p><strong>lab-3-fifa-tools</strong>: Enfoque híbrido inteligente</p>
+<pre><code class="language-python"># Protocolo de 3 niveles:
+# 1. Conocimiento interno primero
+# 2. Google Search para info actual
+# 3. Combinación inteligente de ambas fuentes
+</code></pre>
+<h3 id="capacidades-expandidas">Capacidades Expandidas</h3>
+<table>
+<thead>
+<tr>
+<th>Capacidad</th>
+<th>fifa_agent</th>
+<th>lab-3-fifa-tools</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Información histórica</strong></td>
+<td>✅ Excelente</td>
+<td>✅ Excelente</td>
+</tr>
+<tr>
+<td><strong>Noticias 2024-2025</strong></td>
+<td>❌ No disponible</td>
+<td>✅ Tiempo real</td>
+</tr>
+<tr>
+<td><strong>Estado actual jugadores</strong></td>
+<td>❌ Limitado</td>
+<td>✅ Verificado</td>
+</tr>
+<tr>
+<td><strong>Verificación cruzada</strong></td>
+<td>❌ No posible</td>
+<td>✅ Activa</td>
+</tr>
+<tr>
+<td><strong>Adaptabilidad</strong></td>
+<td>⚠️ Estática</td>
+<td>✅ Dinámica</td>
 </tr>
 </tbody>
 </table>
