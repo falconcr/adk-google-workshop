@@ -1,0 +1,2 @@
+# Dependencias para FIFA Agent Plus con Google Search nativo de ADK
+google-adk>=0.1.0
